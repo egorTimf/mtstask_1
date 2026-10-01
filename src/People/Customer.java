@@ -1,3 +1,7 @@
+package People;
+
+import OrderClasses.Order;
+
 public class Customer extends People {
     private String _address;
     private Order _order;

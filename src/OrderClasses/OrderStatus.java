@@ -1,3 +1,5 @@
+package OrderClasses;
+
 public enum OrderStatus {
     NEW,
     CONFIRMED,

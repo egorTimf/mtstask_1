@@ -1,3 +1,5 @@
+package People;
+
 public class People {
     private final String Name;
     private final String Surname;

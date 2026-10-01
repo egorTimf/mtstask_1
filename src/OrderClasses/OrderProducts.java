@@ -1,4 +1,5 @@
-import java.util.Dictionary;
+package OrderClasses;
+
 import java.util.HashMap;
 import java.util.Map;
 
