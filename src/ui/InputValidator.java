@@ -1,3 +1,4 @@
+package ui;
 
 public final class InputValidator {
 
