@@ -1,15 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import OrderClasses.Product;
+import OrderClasses.ProductCatalog;
+import People.Courier;
+import People.CourierStatus;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // --- Каталог товаров ---
+        ProductCatalog productCatalog = new ProductCatalog();
+        productCatalog.addProduct(new Product("Хлеб", 50));
+        productCatalog.addProduct(new Product("Молоко", 90));
+        productCatalog.addProduct(new Product("Сыр", 300));
+        productCatalog.addProduct(new Product("Колбаса", 250));
+        productCatalog.addProduct(new Product("Яблоки", 120));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // --- Сервисы ---
+        OrderService orderService = new OrderService();
+        CourierService courierService = new CourierService();
+
+        // --- Курьеры ---
+        courierService.addCourier(new Courier("Иван", "Петров"));
+        courierService.addCourier(new Courier("Сергей", "Сидоров"));
+        courierService.addCourier(new Courier("Анна", "Смирнова"));
+
+        // --- Консольный интерфейс ---
+        ConsoleUI ui = new ConsoleUI(orderService, courierService, productCatalog);
+        ui.run();
     }
 }

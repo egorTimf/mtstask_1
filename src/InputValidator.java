@@ -1,10 +1,6 @@
 
 public final class InputValidator {
 
-    private InputValidator() {
-        // утилитный класс — не создаём экземпляры
-    }
-
     public static void requireNonBlank(String value, String fieldName) {
         if (value == null || value.isBlank()) {
             throw new IllegalArgumentException(fieldName + " не может быть пустым");

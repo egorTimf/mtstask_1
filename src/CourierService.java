@@ -11,6 +11,16 @@ public class CourierService {
         return couriers;
     }
 
+    public ArrayList<Courier> getFreeCouriers() {
+        ArrayList<Courier> freeCouriers = new ArrayList<>();
+        for (Courier courier : couriers) {
+            if (courier.getStatus() == CourierStatus.free) {   // или order.getCourier() == null
+                freeCouriers.add(courier);
+            }
+        }
+        return freeCouriers;
+    }
+
     public Courier getCourier(Integer index){
         return couriers.get(index);
     }

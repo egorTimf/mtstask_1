@@ -1,8 +1,6 @@
 import Delivery.DeliveryMethod;
 import OrderClasses.Order;
-import OrderClasses.OrderProducts;
 import OrderClasses.OrderStatus;
-import People.Courier;
 import People.Customer;
 
 import java.util.ArrayList;
@@ -14,9 +12,10 @@ public class OrderService {
         return orderList;
     }
 
-    public void createOrder(Customer customer, DeliveryMethod deliveryMethod, String address) {
-        Order newOrd = new Order(customer, deliveryMethod, address, orderList.size()+ 1);
+    public Order createOrder(Customer customer, String address) {
+        Order newOrd = new Order(customer, address,orderList.size()+ 1);
         orderList.add(newOrd);
+        return newOrd;
     }
 
     public void setDeliveryMethod(Order order, DeliveryMethod deliveryMethod){

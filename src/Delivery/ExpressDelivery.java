@@ -2,12 +2,12 @@ package Delivery;
 
 public class ExpressDelivery implements DeliveryMethod {
     @Override
-    public Integer calculatePrice(String address1, String address2) {
+    public Integer calculatePrice(String address) {
         return 1000;
     }
 
     @Override
-    public Integer calculateTime(String address1, String address2) {
+    public Integer calculateTime(String address) {
         return 5;
     }
 
