@@ -1,14 +1,14 @@
 package People;
 
 public class People {
-    private final String Name;
-    private final String Surname;
+    private final String name;
+    private final String surname;
 
-    public String GetName() { return Name; }
-    public String GetSurname() { return Surname; }
+    public String getName() { return name; }
+    public String getSurname() { return surname; }
 
     public People(String name, String surname) {
-        Name = name;
-        Surname = surname;
+        this.name = name;
+        this.surname = surname;
     }
 }

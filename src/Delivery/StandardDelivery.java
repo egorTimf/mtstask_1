@@ -2,17 +2,17 @@ package Delivery;
 
 public class StandardDelivery implements DeliveryMethod {
     @Override
-    public Integer CalculatePrice(String Address1, String Address2) {
+    public Integer calculatePrice(String address1, String address2) {
         return 100;
     }
 
     @Override
-    public Integer CalculateTime(String Address1, String Address2) {
+    public Integer calculateTime(String address1, String address2) {
         return 10;
     }
 
     @Override
-    public boolean CourierIsNeed() {
+    public boolean courierIsNeed() {
         return true;
     }
 }

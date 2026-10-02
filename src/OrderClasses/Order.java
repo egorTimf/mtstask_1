@@ -5,52 +5,54 @@ import People.Courier;
 import People.Customer;
 
 public class Order {
-    private Customer _customer;
-    private Courier _courier;
-    private OrderProducts _products;
-    private String _address;
-    private OrderStatus _status;
-    private Integer _price;
-    private DeliveryMethod _delivery;
-    private Integer _number;
+    private Customer customer;
+    private Courier courier;
+    private OrderProducts products;
+    private String address;
+    private OrderStatus status;
+    private Integer price;
+    private DeliveryMethod delivery;
+    private Integer number;
 
-    public Order(Customer customer, OrderProducts products, DeliveryMethod delivery, String address, Integer number) {
-        _customer = customer;
-        _products = products;
-        _address = address;
-        _status = OrderStatus.NEW;
-        _delivery = delivery;
-        _number = number;
-        CalculatePrice();
+    public Order(Customer customer, DeliveryMethod delivery, String address, Integer number) {
+        this.customer = customer;
+        this.products = new OrderProducts();
+        this.address = address;
+        this.status = OrderStatus.NEW;
+        this.delivery = delivery;
+        this.number = number;
+        this.calculatePrice();
     }
 
-    public void AddItem(Product product, Integer count) throws Exception {
-        _products.AddItem(product, count);
-        CalculatePrice();
+    public void addItem(Product product, Integer count) throws Exception {
+        products.addItem(product, count);
+        calculatePrice();
     }
 
-    public void RemoveItem(Product product, Integer count) throws Exception {
-        _products.RemoveItem(product, count);
-        CalculatePrice();
+    public void removeItem(Product product, Integer count) throws Exception {
+        products.removeItem(product, count);
+        calculatePrice();
     }
 
-    private void CalculatePrice() {
-        _price = _products.CalculatePrice() + _delivery.CalculatePrice(_address, _customer.GetAddress());
+    private void calculatePrice() {
+        price = products.calculatePrice() + delivery.calculatePrice(address, customer.getAddress());
     }
 
-    public Integer GetPrice() { return _price; }
+    public Integer getPrice() { return price; }
 
-    public OrderStatus GetStatus() { return _status; }
-    public void SetStatus(OrderStatus st) { _status = st; }
+    public OrderStatus getStatus() { return status; }
 
-    public Courier GetCourier() { return _courier; }
-    public void SetCourier(Courier cour) { _courier = cour; }
+    public void setStatus(OrderStatus st) { status = st; }
 
-    public Integer GetTime() { return _delivery.CalculateTime(_address, _customer.GetAddress()); }
-    public Integer GetDeliveryPrice() { return _delivery.CalculatePrice(_address, _customer.GetAddress()); }
+    public Courier getCourier() { return courier; }
+
+    public void setCourier(Courier cour) { courier = cour; }
+
+    public Integer getTime() { return delivery.calculateTime(address, customer.getAddress()); }
+
+    public Integer getDeliveryPrice() { return delivery.calculatePrice(address, customer.getAddress()); }
 
     public void setDeliveryMethod(DeliveryMethod deliveryMethod) {
-        _delivery = deliveryMethod;
+        delivery = deliveryMethod;
     }
-
 }

@@ -3,25 +3,27 @@ package OrderClasses;
 import java.util.Objects;
 
 public class Product {
-    private String _name;
-    private Integer _price;
-    public String GetName() { return _name; }
+    private String name;
+    private Integer price;
 
-    public void SetName(String name) { _name = name; }
+    public String getName() { return name; }
 
-    public Integer GetPrice() {return _price ; }
-    public void SetPrice(Integer price) throws Exception {
+    public void setName(String name) { this.name = name; }
+
+    public Integer getPrice() {return price ; }
+
+    public void setPrice(Integer price) throws Exception {
         if(price < 0) throw new Exception("Negative Price");
-        _price = price;
+        this.price = price;
     }
 
     public Product(String name, Integer price) {
-        _price = price;
-        _name = name;
+        this.price = price;
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(_name);
+        return Objects.hash(name);
     }
 }

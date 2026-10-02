@@ -2,7 +2,7 @@ package Delivery;
 
 public interface DeliveryMethod {
 
-    public Integer CalculateTime(String Address1, String Address2);
-    public Integer CalculatePrice(String Address1, String Address2);
-    boolean CourierIsNeed();
+    public Integer calculateTime(String address1, String address2);
+    public Integer calculatePrice(String address1, String address2);
+    boolean courierIsNeed();
 }
