@@ -274,10 +274,9 @@ public class ConsoleUI {
             return null;
         }
 
-        Product existing = productCatalog.findByName(name);
-        if (existing != null) {
-            System.out.println("Такой товар уже есть в каталоге: " + existing);
-            return existing;
+        if (productCatalog.contains(name)) {
+            System.out.println("Такой товар уже есть в каталоге");
+            return productCatalog.findByName(name);
         }
 
         int price = readNonNegativeInt("Цена за единицу: ", "Цена");

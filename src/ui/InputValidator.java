@@ -27,14 +27,6 @@ public final class InputValidator {
         }
     }
 
-    public static void requirePhone(String phone) {
-        requireNonBlank(phone, "Телефон");
-        String digits = phone.replaceAll("[^0-9]", "");
-        if (digits.length() < 10 || digits.length() > 15) {
-            throw new IllegalArgumentException("Телефон должен содержать 10–15 цифр");
-        }
-    }
-
     public static int parseInt(String raw, String fieldName) {
         try {
             return Integer.parseInt(raw.trim());
